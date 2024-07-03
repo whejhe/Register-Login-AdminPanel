@@ -1,0 +1,70 @@
+<!--front/src/app/pages/auth/register/register.component.html-->
+<div class="portada">
+  <div class="container-logo">
+    <img class="logo" src="../../../assets/img/icons-vtes/clans/svg/pander.svg" alt="">
+    <img class="logo" src="../../../assets/img/icons-vtes/clans/svg/caitiff.svg" alt="">
+  </div>
+  <div class="container">
+    <form (ngSubmit)="register()" class="form-container"
+      [formGroup]="registerForm">
+
+      <div class="row">
+        <!--NOMBRE-->
+        <div class="form-floating col-md-6 d-inline-block margin-left">
+          <input type="text" class="form-control" id="floatingName" placeholder="name"
+          formControlName="name">
+          <label for="floatingName">Name</label>
+        </div>
+        <!--NICK-->
+        <div class=" col-md-6 form-floating d-inline-block">
+          <input type="text" class="form-control" id="floatingNick" placeholder="nick-name"
+            formControlName="nick">
+          <label for="floatingNick">Nick-Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--EMAIL-->
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+            formControlName="email">
+          <label for="floatingInput">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--PASSWORD-->
+        <div class="form-floating password input__wrapper">
+          <input type="password" class="form-control input__field" id="floatingPassword" placeholder="Password"
+            formControlName="password">
+            <img class="icon-password" src="assets/img/eye-off.svg" alt=""
+            (click)="changeVisibilityPassword()">
+          <label class="input__label" for="floatingPassword">Password</label>
+        </div>
+      </div>
+
+      <button class="btn btn-dark w-100 py-2" type="submit"
+      [disabled]="!registerForm.valid"
+      >Registrarse</button>
+    </form>
+
+    <br>
+
+    @if(showSucessMessage){
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <strong>Registro con exito</strong>
+    </div>
+    }
+
+    @if(showErrorMessage){
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <strong>{{errorMesage}}</strong><br>
+      <p>Please, try again.</p>
+    </div>
+    }
+
+  </div>
+
+</div>

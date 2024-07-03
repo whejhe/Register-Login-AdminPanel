@@ -1,0 +1,56 @@
+<div class="portada">
+  <div class="container-logo">
+    <img class="logo" src="../../../assets/img/icons-vtes/clans/svg/gangrel2.svg" alt="">
+  </div>
+  <div class="container">
+    <form (ngSubmit)="login()"
+    class="form-container"
+    [formGroup]="loginForm">
+      <div class="form-floating">
+        <input type="email" class="form-control"
+        id="floatingInput" placeholder="name@example.com"
+        formControlName="email">
+        <label for="floatingInput">Email</label>
+      </div>
+      <!--PASSWORD-->
+      <div class="form-floating password input__wrapper">
+        <input type="password" class="form-control input__field"
+        id="floatingPassword" placeholder="Password"
+        formControlName="password">
+        <img class="input__icon" src="assets/img/eye-off.svg" alt=""
+        (click)="changeVisibilityPassword()">
+        <label class="input__label" for="floatingPassword">Password</label>
+      </div>
+      <br>
+
+      <button class="btn btn-dark w-100 py-2" type="submit"
+      [disabled]="!loginForm.valid">Iniciar Sesiòn</button>
+
+      <div class="register">
+        <p class="no-acount question">¿Aún no tienes cuenta?</p>
+        <p class="mt-5 mb-3 register-text">
+          <a class="link-secondary" href="auth/register">Register</a>
+        </p>
+      </div>
+    </form>
+
+    <br>
+
+    @if (showSucessMessage) {
+      <div class="alert alert-dismissible alert-success">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{message}}</strong><br>
+      </div>
+    }
+
+
+    @if(showErrorMessage){
+      <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{message}}</strong><br>
+      </div>
+    }
+
+  </div>
+
+</div>
